@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Registered Data</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    }
+
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    /* CARD */
+    .card-box {
+        background: white;
+        padding: 25px;
+        margin: 30px auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        width: 90%;
+    }
+
+    /* TABLE */
+    th {
+        background: #00796b;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+
+    /* HEADER */
+    .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    /* FOOTER */
+    .footer {
+        text-align: center;
+        background: #333;
+        color: white;
+        padding: 20px;
+        margin-top: 50px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- Faculty Section -->
+<div class="card-box">
+    <div class="section-title">👨‍🏫 Faculty Profiles</div>
+
+    <table class="table table-bordered table-hover text-center">
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Experience</th>
+            <th>Timings</th>
+        </tr>
+
+        <tr>
+            <td>Ravi</td>
+            <td>Java</td>
+            <td>8 Years</td>
+            <td>10 AM - 12 PM</td>
+        </tr>
+
+        <tr>
+            <td>Gotham Sir</td>
+            <td>Spring</td>
+            <td>6 Years</td>
+            <td>2 PM - 4 PM</td>
+        </tr>
+
+        <tr>
+            <td>Bhadra</td>
+            <td>Core Java</td>
+            <td>9 Years</td>
+            <td>10 AM - 12 PM</td>
+        </tr>
+
+        <tr>
+            <td>Tarun</td>
+            <td>Web Technologies</td>
+            <td>4 Years</td>
+            <td>4 PM - 6 PM</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Student Section -->
+<div class="card-box">
+    <div class="section-title">📋 Registered Students</div>
+
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Qualification</th>
+                <th>Course</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody th:if="${ins != null}">
+            <tr th:each="s : ${ins}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.qualification}"></td>
+                <td th:text="${s.course}"></td>
+                <td th:text="${s.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Dev Institutions - Data Dashboard</p>
+</div>
+
+</body>
+</html>
